@@ -7,15 +7,14 @@ const HEADER_MENU_ITEMS = [
   { label: "공동시설", href: "/shared-facilities" },
   { label: "입실문의", href: "/inquiry" },
   { label: "오시는 길", href: "/location" },
-
 ];
 
 export default function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-30 border-b border-black/10 bg-white/90 backdrop-blur-sm">
+    <header className="fixed inset-x-0 top-0 z-30 border-b border-black/10 bg-white/90 backdrop-blur-sm lg:py-2">
       <div className="mx-auto flex h-16 w-full max-w-[1120px] items-center px-4 sm:px-6 lg:h-[74px] lg:px-0">
         <Link href="/" className="flex items-center">
-          <Image src="https://cdn.qshop.ai/33186/gallery/17f298e018fe11f0aa711bbbcf70e0ff.png" alt="스테이원 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-11" priority />
+          <Image src="/images/logo.png" alt="스테이원 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
         </Link>
 
         <nav className="ml-10 hidden items-center gap-6 text-sm lg:flex">

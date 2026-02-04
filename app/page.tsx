@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
@@ -12,10 +12,7 @@ const HERO_TEXT = {
   desc2: "직장인과 학생을 위한 조용하고 안전한 프리미엄 원룸텔",
 };
 
-const INTRO_IMAGES = [
-  "https://cdn.qshop.ai/22039/gallery/8aa744a0fb2e11ef9964fd11d987c868.jpeg",
-  "https://cdn.qshop.ai/22039/gallery/0340e510e43c11ef9da2952c4dee4c89.jpeg",
-];
+const INTRO_IMAGES = ["https://cdn.qshop.ai/22039/gallery/8aa744a0fb2e11ef9964fd11d987c868.jpeg", "https://cdn.qshop.ai/22039/gallery/0340e510e43c11ef9da2952c4dee4c89.jpeg"];
 
 const BLOG_CARDS = [
   {
@@ -38,10 +35,7 @@ const BLOG_CARDS = [
 export default function Home() {
   const [activeRoom, setActiveRoom] = useState<RoomTypeKey>("A");
 
-  const selectedRoom = useMemo(
-    () => ROOM_TYPES.find((room) => room.key === activeRoom) ?? ROOM_TYPES[0],
-    [activeRoom],
-  );
+  const selectedRoom = useMemo(() => ROOM_TYPES.find((room) => room.key === activeRoom) ?? ROOM_TYPES[0], [activeRoom]);
 
   return (
     <div className="min-h-screen bg-[#f3f5f6] text-[#20282d]">
@@ -65,19 +59,14 @@ export default function Home() {
               style={{ animationDelay: "220ms" }}
             >
               <p className="text-xs tracking-[0.24em] text-white/75">PREMIUM RESIDENCE</p>
-              <h1 className="mt-3 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-                {HERO_TEXT.title}
-              </h1>
+              <h1 className="mt-3 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">{HERO_TEXT.title}</h1>
               <p className="mt-5 text-sm font-normal sm:text-base lg:text-lg">{HERO_TEXT.desc1}</p>
               <p className="mt-2 text-sm font-normal sm:text-base lg:text-lg">{HERO_TEXT.desc2}</p>
               <div className="mt-7 flex justify-end gap-3">
                 <Link href="/inquiry" className="rounded-full bg-white px-5 py-2 text-xs font-bold text-[#111823]">
                   입실 문의
                 </Link>
-                <Link
-                  href="/about"
-                  className="rounded-full border border-white/60 px-5 py-2 text-xs font-bold text-white"
-                >
+                <Link href="/about" className="rounded-full border border-white/60 px-5 py-2 text-xs font-bold text-white">
                   자세히 보기
                 </Link>
               </div>
@@ -134,13 +123,9 @@ export default function Home() {
                       type="button"
                       onClick={() => setActiveRoom(room.key)}
                       aria-pressed={isActive}
-                      className={
-                        isActive
-                          ? "rounded-full bg-[#20282d] px-5 py-2 font-semibold text-white"
-                          : "px-5 py-2 text-[#7d7d7d]"
-                      }
+                      className={isActive ? "rounded-full bg-[#20282d] px-5 py-2 font-semibold text-white" : "px-5 py-2 text-[#7d7d7d]"}
                     >
-                      {room.key === "A" ? "룸 타입A" : room.key === "B" ? "룸 타입B" : "룸 타입C"}
+                      {room.key === "A" ? "개인시설 2층" : room.key === "B" ? "개인시설 3층" : "룸 타입C"}
                     </button>
                   );
                 })}
@@ -149,30 +134,20 @@ export default function Home() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {selectedRoom.images.slice(0, 4).map((src, idx) => (
-                <div
-                  key={src}
-                  className="anim-fade-up relative aspect-[3/4] overflow-hidden rounded-2xl bg-white"
-                  style={{ animationDelay: `${240 + idx * 80}ms` }}
-                >
+                <div key={src} className="anim-fade-up relative aspect-[3/4] overflow-hidden rounded-2xl bg-white" style={{ animationDelay: `${240 + idx * 80}ms` }}>
                   <Image src={src} alt="" fill className="object-cover" />
                 </div>
               ))}
             </div>
 
-            <div
-              className="anim-fade-up mt-8 rounded-2xl border border-black/10 bg-white p-8 text-center shadow-sm"
-              style={{ animationDelay: "340ms" }}
-            >
+            <div className="anim-fade-up mt-8 rounded-2xl border border-black/10 bg-white p-8 text-center shadow-sm" style={{ animationDelay: "340ms" }}>
               <h4 className="text-2xl font-extrabold">{selectedRoom.title}</h4>
               <p className="mt-2 text-sm text-[#555]">{selectedRoom.price}</p>
               <div className="mt-5 flex items-center justify-center gap-3">
                 <Link href="/inquiry" className="rounded-full bg-[#20282d] px-6 py-2 text-xs font-semibold text-white">
                   입실 문의
                 </Link>
-                <Link
-                  href={`/rooms/${selectedRoom.slug}`}
-                  className="rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold"
-                >
+                <Link href={`/rooms/${selectedRoom.slug}`} className="rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
                   상세 보기
                 </Link>
               </div>
@@ -185,20 +160,13 @@ export default function Home() {
             <p className="anim-fade-up text-xs tracking-[0.18em] text-[#666]" style={{ animationDelay: "180ms" }}>
               BLOG
             </p>
-            <h3
-              className="anim-fade-up mt-3 text-5xl font-extrabold"
-              style={{ animationDelay: "240ms" }}
-            >
+            <h3 className="anim-fade-up mt-3 text-5xl font-extrabold" style={{ animationDelay: "240ms" }}>
               블로그 피드
             </h3>
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {BLOG_CARDS.map((post, idx) => (
-                <article
-                  key={post.title}
-                  className="anim-fade-up rounded-2xl border border-black/10 bg-white p-6 shadow-sm"
-                  style={{ animationDelay: `${300 + idx * 90}ms` }}
-                >
+                <article key={post.title} className="anim-fade-up rounded-2xl border border-black/10 bg-white p-6 shadow-sm" style={{ animationDelay: `${300 + idx * 90}ms` }}>
                   <h4 className="line-clamp-2 text-xl font-bold">{post.title}</h4>
                   <p className="mt-4 line-clamp-6 text-sm leading-7 text-[#555]">{post.body}</p>
                   <p className="mt-5 text-xs text-[#888]">{post.meta}</p>
