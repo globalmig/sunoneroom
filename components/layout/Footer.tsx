@@ -33,7 +33,7 @@ export default function Footer({ showFloating = true }: FooterProps) {
           </div>
         </div>
       </footer>
-
+      {/* 
       {showFloating && (
         <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2">
           <button type="button" className="h-11 w-11 rounded-full bg-[#3d444a] text-xs font-semibold text-white shadow-lg">
@@ -46,7 +46,7 @@ export default function Footer({ showFloating = true }: FooterProps) {
             TOP
           </button>
         </div>
-      )}
+      )} */}
     </>
   );
 }

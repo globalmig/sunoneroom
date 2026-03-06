@@ -264,11 +264,36 @@ export default function InquiryDetailPage() {
                 <div className="rounded-lg border border-black/10 bg-[#f8fafb] p-4">
                   <p className="text-sm font-semibold">관리자 수정</p>
                   <div className="mt-2 grid gap-2">
-                    <input value={editForm.name} onChange={(e) => setEditForm((prev) => ({ ...prev, name: e.target.value }))} className="w-full rounded-md border border-black/20 px-3 py-2 text-sm" placeholder="이름" />
-                    <input value={editForm.phone} onChange={(e) => setEditForm((prev) => ({ ...prev, phone: e.target.value }))} className="w-full rounded-md border border-black/20 px-3 py-2 text-sm" placeholder="연락처" />
-                    <input value={editForm.email} onChange={(e) => setEditForm((prev) => ({ ...prev, email: e.target.value }))} className="w-full rounded-md border border-black/20 px-3 py-2 text-sm" placeholder="이메일" />
-                    <input value={editForm.title} onChange={(e) => setEditForm((prev) => ({ ...prev, title: e.target.value }))} className="w-full rounded-md border border-black/20 px-3 py-2 text-sm" placeholder="제목" />
-                    <textarea value={editForm.content} onChange={(e) => setEditForm((prev) => ({ ...prev, content: e.target.value }))} className="h-36 w-full rounded-md border border-black/20 px-3 py-2 text-sm" placeholder="문의 내용" />
+                    <input
+                      value={editForm.name}
+                      onChange={(e) => setEditForm((prev) => ({ ...prev, name: e.target.value }))}
+                      className="w-full rounded-md border border-black/20 px-3 py-2 text-sm"
+                      placeholder="이름"
+                    />
+                    <input
+                      value={editForm.phone}
+                      onChange={(e) => setEditForm((prev) => ({ ...prev, phone: e.target.value }))}
+                      className="w-full rounded-md border border-black/20 px-3 py-2 text-sm"
+                      placeholder="연락처"
+                    />
+                    <input
+                      value={editForm.email}
+                      onChange={(e) => setEditForm((prev) => ({ ...prev, email: e.target.value }))}
+                      className="w-full rounded-md border border-black/20 px-3 py-2 text-sm"
+                      placeholder="이메일"
+                    />
+                    <input
+                      value={editForm.title}
+                      onChange={(e) => setEditForm((prev) => ({ ...prev, title: e.target.value }))}
+                      className="w-full rounded-md border border-black/20 px-3 py-2 text-sm"
+                      placeholder="제목"
+                    />
+                    <textarea
+                      value={editForm.content}
+                      onChange={(e) => setEditForm((prev) => ({ ...prev, content: e.target.value }))}
+                      className="h-36 w-full rounded-md border border-black/20 px-3 py-2 text-sm"
+                      placeholder="문의 내용"
+                    />
                   </div>
                   <div className="mt-3 flex gap-2">
                     <button type="button" onClick={() => void updatePost()} disabled={updating || deleting} className="rounded-md border border-black/20 px-3 py-2 text-sm disabled:opacity-70">
