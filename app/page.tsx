@@ -7,30 +7,30 @@ import Header from "@/components/layout/Header";
 import { ROOM_TYPES, type RoomTypeKey } from "@/lib/rooms";
 
 const HERO_TEXT = {
-  title: "스테이원 독산역점",
-  desc1: "독산역 도보 5분, 가산디지털단지 · 구로디지털단지 생활권",
-  desc2: "직장인과 학생을 위한 조용하고 안전한 프리미엄 원룸텔",
+  title: "SUN원룸텔",
+  desc1: "금촌역 2번 출구 도보 5분, 전용 주차장 보유",
+  desc2: "안전한 보안·소방 설비와 쾌적한 관리의 편안한 원룸텔",
 };
 
-const INTRO_IMAGES = ["https://cdn.qshop.ai/22039/gallery/8aa744a0fb2e11ef9964fd11d987c868.jpeg", "https://cdn.qshop.ai/22039/gallery/0340e510e43c11ef9da2952c4dee4c89.jpeg"];
+const INTRO_IMAGES = ["/images/room/1.png", "/images/room/2.png"];
 
-const BLOG_CARDS = [
-  {
-    title: "신규 공용공간 리뉴얼 안내",
-    body: "공용 주방과 세탁 공간을 새롭게 정비했습니다. 더 넓어진 조리 공간과 건조 존으로 생활 편의성을 높였습니다.",
-    meta: "stayone | 2026-02-01 09:30",
-  },
-  {
-    title: "2월 입실 가능 객실 공지",
-    body: "2월 중순 기준 일부 객실이 비어 있습니다. 단기/장기 거주 모두 상담 가능하며, 방문 예약 후 투어가 가능합니다.",
-    meta: "stayone | 2026-01-28 14:05",
-  },
-  {
-    title: "생활 수칙 및 야간 보안 안내",
-    body: "입주민의 편안한 생활을 위해 공용공간 이용 시간과 야간 출입 수칙을 안내드립니다. 보안 점검도 정기적으로 진행 중입니다.",
-    meta: "stayone | 2026-01-22 18:40",
-  },
-];
+// const BLOG_CARDS = [
+//   {
+//     title: "신규 공용공간 리뉴얼 안내",
+//     body: "공용 주방과 세탁 공간을 새롭게 정비했습니다. 더 넓어진 조리 공간과 건조 존으로 생활 편의성을 높였습니다.",
+//     meta: "stayone | 2026-02-01 09:30",
+//   },
+//   {
+//     title: "2월 입실 가능 객실 공지",
+//     body: "2월 중순 기준 일부 객실이 비어 있습니다. 단기/장기 거주 모두 상담 가능하며, 방문 예약 후 투어가 가능합니다.",
+//     meta: "stayone | 2026-01-28 14:05",
+//   },
+//   {
+//     title: "생활 수칙 및 야간 보안 안내",
+//     body: "입주민의 편안한 생활을 위해 공용공간 이용 시간과 야간 출입 수칙을 안내드립니다. 보안 점검도 정기적으로 진행 중입니다.",
+//     meta: "stayone | 2026-01-22 18:40",
+//   },
+// ];
 
 export default function Home() {
   const [activeRoom, setActiveRoom] = useState<RoomTypeKey>("A");
@@ -46,8 +46,7 @@ export default function Home() {
           <div
             className="anim-fade-in absolute inset-0"
             style={{
-              backgroundImage:
-                "linear-gradient(115deg, rgba(17,23,31,.62), rgba(17,23,31,.12) 55%, rgba(17,23,31,.42)), url('https://cdn.qshop.ai/33186/gallery/00d8e0101db311f0ad4add32ecf75fd2.jpg')",
+              backgroundImage: "linear-gradient(115deg, rgba(255, 255, 255, 0.267) , rgba(53, 53, 53, 0.12) , rgba(17,23,31,.42) ), url('/images/room/main.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               animationDelay: "120ms",
@@ -89,17 +88,15 @@ export default function Home() {
 
             <div className="text-right lg:max-w-[430px]">
               <p className="text-sm font-medium text-[#6a6a6a]">Welcome to</p>
-              <h2 className="mt-1 text-5xl font-extrabold tracking-tight">STAY ONE</h2>
+              <h2 className="mt-1 text-5xl font-extrabold tracking-tight">SUN원룸텔</h2>
               <p className="mt-4 text-sm leading-7 text-[#525252]">
-                프리미엄 레지던스 원룸텔, 스테이원 독산역점
+                넓은 옥상테라스, 휴식공간, 전용주차장, 무료 인터넷
                 <br />
-                잠시 머무는 공간도 내 집처럼 편안하게
-                <br />
-                하루를 시작하고 마무리할 수 있도록 준비했습니다.
+                Full Option 원룸텔
               </p>
-              <button type="button" className="mt-6 rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
-                스테이원 독산역점
-              </button>
+              {/* <button type="button" className="mt-6 rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
+                풀옵션 썬원룸텔
+              </button> */}
             </div>
           </div>
         </section>
@@ -155,7 +152,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="pt-14">
+        {/* <section className="pt-14">
           <div className="mx-auto w-full max-w-[1120px] px-4 lg:px-0">
             <p className="anim-fade-up text-xs tracking-[0.18em] text-[#666]" style={{ animationDelay: "180ms" }}>
               BLOG
@@ -174,7 +171,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   );

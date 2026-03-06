@@ -151,6 +151,9 @@ if (error) {
 
 ## 5. 관리자 페이지 규칙
 
+forstop26@gmail.com
+sunoneroomforstop26@gmail.com
+
 ### 5.1 인증
 
 - `/app/admin` 경로는 middleware에서 보호
