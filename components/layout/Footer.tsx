@@ -8,8 +8,8 @@ interface FooterProps {
 export default function Footer({ showFloating = true }: FooterProps) {
   return (
     <>
-      <footer className="bg-[#f1f1f1] py-10">
-        <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-8 px-4 text-sm text-[#333] lg:flex-row lg:justify-between lg:px-0">
+      <footer className="bg-[#817f7c] py-10 ">
+        <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-8 px-4 text-sm text-white lg:flex-row lg:justify-between lg:px-0">
           <div>
             <Link href="/" className="flex items-center">
               <Image src="/images/logo.png" alt="스테이원 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
@@ -20,7 +20,7 @@ export default function Footer({ showFloating = true }: FooterProps) {
             <p className="mt-4 text-xl font-extrabold">TEL.031-948-2133</p>
           </div>
 
-          <div className="flex items-start gap-3">
+          {/* <div className="flex items-start gap-3">
             <button type="button" className="rounded-full border border-[#20282d] px-4 py-2 text-xs">
               CALL
             </button>
@@ -30,7 +30,7 @@ export default function Footer({ showFloating = true }: FooterProps) {
             <button type="button" className="rounded-full border border-[#20282d] px-4 py-2 text-xs">
               NAVER
             </button>
-          </div>
+          </div> */}
         </div>
       </footer>
       {/* 

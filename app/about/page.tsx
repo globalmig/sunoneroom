@@ -4,37 +4,37 @@ const SERVICE_ITEMS = [
   {
     en: "Monthly Rent",
     title: "합리적인 가격",
-    points: ["1개월 단위 거주 가능", "2인 거주 가능(협의)", "최소 보증금으로 초기 부담 완화", "월 65~80만원 객실 운영"],
+    points: ["1개월 단위 거주 가능", "2인 거주 가능(협의)", "최소 보증금으로 초기 부담 완화"],
     icon: "https://cdn.qshop.ai/22039/gallery/ee67c9a0e45f11efbd5d5db052f3b3f0.png",
   },
   {
     en: "Room Option",
     title: "룸 옵션",
-    points: ["침대·책상·행거 등 기본 가구 제공", "전 객실 WIFI 사용 가능"],
+    points: ["침대·책상·행거 등 기본 가구 제공", "전 객실 WIFI 사용 가능", "주기적인 소방 안전 관리", "개인 에어컨 제공"],
     icon: "https://cdn.qshop.ai/22039/gallery/d510aa80e45f11efbd5d5db052f3b3f0.png",
   },
   {
     en: "Food Service",
     title: "푸드 서비스",
-    points: ["원두커피 / 얼음 제공", "커피머신 / 전자레인지 / 토스트기 비치", "컵·접시·쟁반·도마 등 구비"],
+    points: ["원두커피 / 얼음 제공", "전자레인지 / 토스트기 비치", "라면·김치·조미료·컵·접시·쟁반·도마 등 구비"],
     icon: "https://cdn.qshop.ai/22039/gallery/dd7e6950e45f11efbd5d5db052f3b3f0.png",
   },
   {
     en: "Laundry Service",
     title: "세탁·건조",
-    points: ["세탁기 사용 가능", "건조기 사용 가능"],
+    points: ["세탁기 사용 가능", "각 층 테라스 건조대 제공"],
     icon: "https://cdn.qshop.ai/22039/gallery/1a230230e46011ef9da2952c4dee4c89.png",
   },
   {
     en: "Security",
     title: "보안 시스템",
-    points: ["24시간 CCTV 촬영", "24시간 모니터링", "개별 도어락"],
+    points: ["24시간 CCTV 촬영", "24시간 모니터링", "각층 도어락", "각방 개인 열쇠 제공"],
     icon: "https://cdn.qshop.ai/22039/gallery/3a86f090e46011ef9da2952c4dee4c89.png",
   },
   {
     en: "Other",
     title: "기타 서비스",
-    points: ["주 단위 정기 소독", "주차 가능(협의)"],
+    points: ["주 단위 정기 소독", "주차 가능 (협의)", "4층 대형 테라스 - 운동, 세탁, 담배 가능"],
     icon: "https://cdn.qshop.ai/22039/gallery/47ee5610e46011efbd5d5db052f3b3f0.png",
   },
 ];
@@ -50,17 +50,17 @@ export default function AboutPage() {
     <div className="bg-[#f6f8f9] text-[#20282d]">
       <section className="px-4 pt-[118px]">
         <div className="mx-auto max-w-[1200px]">
-          <p className="anim-fade-up text-xs tracking-[0.22em] text-[#6f7780]">ABOUT STAY ONE</p>
+          <p className="anim-fade-up text-xs tracking-[0.22em] text-[#6f7780]">ABOUT SUN원룸텔</p>
           <div className="mt-4 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <h1 className="anim-fade-up text-5xl font-extrabold leading-[1.05] lg:text-7xl">
               Why
               <br />
-              STAY ONE?
+              SUN원룸텔?
             </h1>
             <p className="anim-fade-up text-base leading-8 text-[#4f5661] lg:text-right" style={{ animationDelay: "120ms" }}>
               공간은 더 쾌적하게, 생활은 더 편안하게.
               <br />
-              썬원룸텔이 합리적인 단기 주거 공간을 제안합니다.
+              조용한 주택가 & 가까운 거리의 편의점, 대형마트, 코인세탁소
             </p>
           </div>
 
@@ -84,18 +84,11 @@ export default function AboutPage() {
           <div className="anim-fade-up relative min-h-[300px] overflow-hidden rounded-3xl lg:min-h-[520px]" style={{ animationDelay: "120ms" }}>
             {/* <Image src="https://cdn.qshop.ai/22039/gallery/8aa744a0fb2e11ef9964fd11d987c868.jpeg" alt="스테이원 객실 이미지" fill className="object-cover" /> */}
 
-            <Image src="/images/private_2f_3.png" alt="스테이원 객실 이미지" fill className="object-cover" />
+            <Image src="/images/private_2f_3.png" alt="썬원룸텔 객실 이미지" fill className="object-cover" />
           </div>
-          <div className="anim-fade-up flex min-h-[220px] items-end rounded-3xl bg-[#111823] p-6 text-white lg:min-h-[520px]" style={{ animationDelay: "200ms" }}>
-            <div>
-              <p className="text-xs tracking-[0.18em] text-white/70">PREMIUM RESIDENCE</p>
-              <p className="mt-3 text-3xl font-extrabold leading-tight">STAY ONE DOKSAN</p>
-              <p className="mt-4 text-sm leading-7 text-white/85">
-                쾌적한 공간과 명확한 운영 기준으로
-                <br />
-                머무는 시간을 안정감 있게 설계합니다.
-              </p>
-            </div>
+          <div className="anim-fade-up relative min-h-[380px] overflow-hidden rounded-3xl lg:min-h-[520px]">
+            {/* <Image src="https://cdn.qshop.ai/22039/gallery/b2628890e46011ef9da2952c4dee4c89.jpeg" alt="스테이원 공간 이미지" fill className="object-cover" priority /> */}
+            <Image src="/images/store.jpg" alt="편의점" fill className="object-cover" priority />
           </div>
         </div>
       </section>

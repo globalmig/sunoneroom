@@ -34,14 +34,7 @@ export const ROOM_TYPES: RoomInfo[] = [
     title: "개인시설 2층",
     price: "문의부탁드립니다",
     mainImage: "/images/room/floor_02_01.png",
-    images: [
-      "/images/room/floor_02_01.png",
-      "https://cdn.qshop.ai/33186/gallery/114e21d01db311f0a1e1a11e95291af9.JPG",
-      "https://cdn.qshop.ai/33186/gallery/60c4bbb01db411f0a5004326f29317ec.JPG",
-      "https://cdn.qshop.ai/33186/gallery/5a1bb7501db411f0ad4add32ecf75fd2.JPG",
-      "https://cdn.qshop.ai/33186/gallery/52dd29b01db411f0b1f8f5a2e54379f6.JPG",
-      "https://cdn.qshop.ai/33186/gallery/7b551e201db411f0a2600b149f261221.JPG",
-    ],
+    images: ["/images/room/floor_02_01.png", "/images/room/2_1.png", "/images/room/2_2.png", "/images/room/2_3.png", "/images/room/5_3.png"],
   },
   {
     key: "B",
@@ -49,15 +42,8 @@ export const ROOM_TYPES: RoomInfo[] = [
     tabLabel: "개인시설 3층",
     title: "개인시설 3층",
     price: "문의부탁드립니다",
-    mainImage: "https://cdn.qshop.ai/33186/gallery/52dd29b01db411f0b1f8f5a2e54379f6.JPG",
-    images: [
-      "https://cdn.qshop.ai/33186/gallery/52dd29b01db411f0b1f8f5a2e54379f6.JPG",
-      "https://cdn.qshop.ai/33186/gallery/5a1bb7501db411f0ad4add32ecf75fd2.JPG",
-      "https://cdn.qshop.ai/33186/gallery/60c4bbb01db411f0a5004326f29317ec.JPG",
-      "https://cdn.qshop.ai/33186/gallery/114e21d01db311f0a1e1a11e95291af9.JPG",
-      "https://cdn.qshop.ai/33186/gallery/998e16301db411f0a8845130e185e3fc.JPG",
-      "https://cdn.qshop.ai/33186/gallery/a506f2201db411f0a8845130e185e3fc.JPG",
-    ],
+    mainImage: "/images/room/3_1.png",
+    images: ["/images/room/3_1.png", "/images/room/3_3.png", "/images/room/04.png", "/images/room/3_2.png", "/images/room/5_3.png"],
   },
   // {
   //   key: "C",

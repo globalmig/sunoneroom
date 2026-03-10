@@ -42,30 +42,32 @@ export default function Home() {
       <Header />
 
       <main className="pb-16">
-        <section className="relative flex min-h-[88vh] items-center justify-end px-4 pt-16 sm:px-6 lg:px-0 lg:pt-[74px]">
+        <section className="relative flex min-h-[88vh] items-center justify-center md:justify-end px-4 pt-16 sm:px-6 lg:px-0 lg:pt-[74px]">
           <div
             className="anim-fade-in absolute inset-0"
             style={{
-              backgroundImage: "linear-gradient(115deg, rgba(255, 255, 255, 0.267) , rgba(53, 53, 53, 0.12) , rgba(17,23,31,.42) ), url('/images/room/main.png')",
+              backgroundImage: "url('/images/room/main.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               animationDelay: "120ms",
             }}
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/0 via-[#0f172a]/10 to-[#0f172a]/12" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(255,205,138,0.32),transparent_42%),radial-gradient(circle_at_62%_74%,rgba(147,197,253,0.24),transparent_40%)]" />
           <div className="relative z-10 mx-auto w-full max-w-[1120px]">
             <div
-              className="anim-fade-up ml-auto max-w-[560px] rounded-2xl border border-white/25 bg-white/10 p-6 text-right text-white backdrop-blur-sm sm:p-8 lg:p-10"
+              className="anim-fade-up ml-auto max-w-[620px] rounded-2xl border border-white/70 bg-white/40 p-6 text-center md:text-right text-[#1e293b] shadow-[0_18px_50px_rgba(15,23,42,0.22)] backdrop-blur-md sm:p-8 lg:p-10 "
               style={{ animationDelay: "220ms" }}
             >
-              <p className="text-xs tracking-[0.24em] text-white/75">PREMIUM RESIDENCE</p>
-              <h1 className="mt-3 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">{HERO_TEXT.title}</h1>
-              <p className="mt-5 text-sm font-normal sm:text-base lg:text-lg">{HERO_TEXT.desc1}</p>
-              <p className="mt-2 text-sm font-normal sm:text-base lg:text-lg">{HERO_TEXT.desc2}</p>
-              <div className="mt-7 flex justify-end gap-3">
-                <Link href="/inquiry" className="rounded-full bg-white px-5 py-2 text-xs font-bold text-[#111823]">
+              <p className="text-xs font-semibold tracking-[0.24em] text-[#475569]">PREMIUM RESIDENCE</p>
+              <h1 className="mt-3 text-4xl font-extrabold leading-tight text-[#0f172a] sm:text-5xl lg:text-6xl">{HERO_TEXT.title}</h1>
+              <p className="mt-5 text-base font-semibold leading-relaxed text-[#1e293b] sm:text-lg lg:text-2xl">{HERO_TEXT.desc1}</p>
+              <p className="mt-2 text-base font-medium leading-relaxed text-[#334155] sm:text-lg lg:text-2xl">{HERO_TEXT.desc2}</p>
+              <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-end gap-3">
+                <Link href="/inquiry" className="rounded-full bg-[#0f172a] px-5 py-2 text-sm font-bold text-white shadow-sm">
                   입실 문의
                 </Link>
-                <Link href="/about" className="rounded-full border border-white/60 px-5 py-2 text-xs font-bold text-white">
+                <Link href="/about" className="rounded-full border border-[#0f172a]/20 bg-white/75 px-5 py-2 text-sm font-bold text-[#0f172a]">
                   자세히 보기
                 </Link>
               </div>
@@ -75,10 +77,10 @@ export default function Home() {
 
         <section className="py-16 lg:py-20">
           <div
-            className="anim-fade-up mx-auto grid w-full max-w-[1120px] gap-8 rounded-3xl border border-black/5 bg-white p-6 shadow-[0_20px_60px_rgba(16,24,40,0.08)] lg:grid-cols-[1fr_auto] lg:items-center lg:p-10"
+            className="anim-fade-up mx-auto grid w-full max-w-[1120px] gap-8 rounded-3xl border border-black/5 bg-white p-6 shadow-[0_20px_60px_rgba(16,24,40,0.08)]   lg:grid-cols-[1fr_auto] lg:items-center lg:p-10 "
             style={{ animationDelay: "180ms" }}
           >
-            <div className="grid grid-cols-2 gap-3">
+            <div className="order-2 grid gap-3 md:order-1 md:grid-cols-2">
               {INTRO_IMAGES.map((src) => (
                 <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-white">
                   <Image src={src} alt="" fill className="object-cover" />
@@ -86,7 +88,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-right lg:max-w-[430px]">
+            <div className="order-1 text-center md:order-2 md:text-right lg:max-w-[430px]">
               <p className="text-sm font-medium text-[#6a6a6a]">Welcome to</p>
               <h2 className="mt-1 text-5xl font-extrabold tracking-tight">SUN원룸텔</h2>
               <p className="mt-4 text-sm leading-7 text-[#525252]">
