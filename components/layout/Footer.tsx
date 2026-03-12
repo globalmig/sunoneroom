@@ -10,7 +10,7 @@ export default function Footer({ showFloating = true }: FooterProps) {
     <>
       <footer className="bg-[#817f7c] py-10 ">
         <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-8 px-4 text-sm text-white lg:flex-row lg:justify-between lg:px-0">
-          <div>
+          <div className="px-4">
             <Link href="/" className="flex items-center">
               <Image src="/images/logo.png" alt="썬원룸텔 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
             </Link>
