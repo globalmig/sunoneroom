@@ -12,7 +12,7 @@ export default function Footer({ showFloating = true }: FooterProps) {
         <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-8 px-4 text-sm text-white lg:flex-row lg:justify-between lg:px-0">
           <div>
             <Link href="/" className="flex items-center">
-              <Image src="/images/logo.png" alt="스테이원 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
+              <Image src="/images/logo.png" alt="썬원룸텔 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
             </Link>
             <p className="mt-4">대표자명: 김양임 | 사업자등록번호: 806-15-00232</p>
             <p>소재지: 파주시 정담길 17 (아동동 297) 보광빌딩 2,3층 SUN원룸텔</p>

@@ -78,16 +78,12 @@ export default function AboutPage() {
       <section className="px-4 py-14">
         <div className="mx-auto grid max-w-[1200px] gap-4 lg:grid-cols-[1fr_1fr_0.9fr]">
           <div className="anim-fade-up relative min-h-[380px] overflow-hidden rounded-3xl lg:min-h-[520px]">
-            {/* <Image src="https://cdn.qshop.ai/22039/gallery/b2628890e46011ef9da2952c4dee4c89.jpeg" alt="스테이원 공간 이미지" fill className="object-cover" priority /> */}
             <Image src="/images/station.png" alt="금촌역" fill className="object-cover" priority />
           </div>
           <div className="anim-fade-up relative min-h-[300px] overflow-hidden rounded-3xl lg:min-h-[520px]" style={{ animationDelay: "120ms" }}>
-            {/* <Image src="https://cdn.qshop.ai/22039/gallery/8aa744a0fb2e11ef9964fd11d987c868.jpeg" alt="스테이원 객실 이미지" fill className="object-cover" /> */}
-
             <Image src="/images/private_2f_3.png" alt="썬원룸텔 객실 이미지" fill className="object-cover" />
           </div>
           <div className="anim-fade-up relative min-h-[380px] overflow-hidden rounded-3xl lg:min-h-[520px]">
-            {/* <Image src="https://cdn.qshop.ai/22039/gallery/b2628890e46011ef9da2952c4dee4c89.jpeg" alt="스테이원 공간 이미지" fill className="object-cover" priority /> */}
             <Image src="/images/store.jpg" alt="편의점" fill className="object-cover" priority />
           </div>
         </div>
@@ -105,9 +101,9 @@ export default function AboutPage() {
           <div className="anim-fade-up mb-12 flex flex-col items-start justify-between gap-4 border-b border-black/10 pb-6 md:flex-row md:items-end">
             <div>
               <p className="text-sm tracking-[0.14em] text-[#7a7a7a]">SERVICE</p>
-              <h2 className="mt-2 text-5xl font-extrabold">스테이원 서비스 안내</h2>
+              <h2 className="mt-2 text-5xl font-extrabold">SUN원룸텔 서비스 안내</h2>
             </div>
-            <p className="text-sm text-[#646b76]">카드형은 서비스 리스트에만 적용하고, 나머지는 레이아웃 중심으로 구성했습니다.</p>
+            {/* <p className="text-sm text-[#646b76]">카드형은 서비스 리스트에만 적용하고, 나머지는 레이아웃 중심으로 구성했습니다.</p> */}
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">

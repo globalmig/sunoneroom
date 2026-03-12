@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 const HEADER_MENU_ITEMS = [
-  { label: "스테이원", href: "/about" },
+  { label: "소개", href: "/about" },
   { label: "개인시설", href: "/rooms/standard-room" },
   { label: "공동시설", href: "/shared-facilities" },
   { label: "입실문의", href: "/inquiry" },
@@ -14,7 +14,7 @@ export default function Header() {
     <header className="fixed inset-x-0 top-0 z-30 border-b border-black/10 bg-white/90 backdrop-blur-sm lg:py-2">
       <div className="mx-auto flex h-16 w-full max-w-[1120px] items-center px-4 sm:px-6 lg:h-[74px] lg:px-0">
         <Link href="/" className="flex items-center">
-          <Image src="/images/logo.png" alt="스테이원 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
+          <Image src="/images/logo.png" alt="SUN원룸텔 독산역점 로고" width={220} height={60} className="h-9 w-auto lg:h-16 " priority />
         </Link>
 
         <nav className="ml-10 hidden items-center gap-6 text-sm lg:flex">
