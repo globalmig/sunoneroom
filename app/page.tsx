@@ -1,16 +1,34 @@
 ﻿"use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import { ROOM_TYPES, type RoomTypeKey } from "@/lib/rooms";
 
-const HERO_TEXT = {
-  title: "SUN원룸텔",
-  desc1: "금촌역 2번 출구 도보 5분, 전용 주차장 보유",
-  desc2: "안전한 보안·소방 설비와 쾌적한 관리의 편안한 원룸텔",
-};
+const HERO_SLIDES = [
+  {
+    image: "/images/room/main.png",
+    tag: "PREMIUM RESIDENCE",
+    title: "SUN원룸텔",
+    desc1: "금촌역 2번 출구 도보 5분, 전용 주차장 보유",
+    desc2: "안전한 보안·소방 설비와 쾌적한 관리의 편안한 원룸텔",
+  },
+  {
+    image: "/images/room/1.png",
+    tag: "FULL OPTION",
+    title: "풀옵션 생활공간",
+    desc1: "냉장고·에어컨·세탁기 등 모든 가구 완비",
+    desc2: "짐 없이 바로 입실 가능한 올인클루시브 원룸텔",
+  },
+  {
+    image: "/images/room/2.png",
+    tag: "COMFORT & SECURITY",
+    title: "쾌적한 보안 시설",
+    desc1: "옥상 테라스, 공용 휴식 공간, 무료 인터넷 제공",
+    desc2: "24시간 CCTV와 소방 설비로 안심하는 생활 환경",
+  },
+];
 
 const INTRO_IMAGES = ["/images/room/1.png", "/images/room/2.png"];
 
@@ -32,44 +50,88 @@ const INTRO_IMAGES = ["/images/room/1.png", "/images/room/2.png"];
 //   },
 // ];
 
+const PHONE = "031-948-2133";
+
 export default function Home() {
   const [activeRoom, setActiveRoom] = useState<RoomTypeKey>("A");
+  const [copied, setCopied] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // 터치 미지원 = 데스크탑: 클립보드 복사
+    if (window.matchMedia("(hover: hover)").matches) {
+      e.preventDefault();
+      navigator.clipboard.writeText(PHONE).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
 
   const selectedRoom = useMemo(() => ROOM_TYPES.find((room) => room.key === activeRoom) ?? ROOM_TYPES[0], [activeRoom]);
 
   return (
     <div className="min-h-screen bg-[#f3f5f6] text-[#20282d]">
-      <Header />
+      {copied && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-[#20282d] px-5 py-2 text-sm text-white shadow-lg">전화번호가 복사되었습니다</div>}
 
       <main className="pb-16">
         <section className="relative flex min-h-[88vh] items-center justify-center md:justify-end px-4 pt-16 sm:px-6 lg:px-0 lg:pt-[74px]">
-          <div
-            className="anim-fade-in absolute inset-0"
-            style={{
-              backgroundImage: "url('/images/room/main.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              animationDelay: "120ms",
-            }}
-          />
+          {/* 슬라이드 배경 이미지 */}
+          {HERO_SLIDES.map((slide, idx) => (
+            <div
+              key={slide.image}
+              className="absolute inset-0 transition-opacity duration-1000"
+              style={{
+                backgroundImage: `url('${slide.image}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: idx === currentSlide ? 1 : 0,
+              }}
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/0 via-[#0f172a]/10 to-[#0f172a]/12" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(255,205,138,0.32),transparent_42%),radial-gradient(circle_at_62%_74%,rgba(147,197,253,0.24),transparent_40%)]" />
           <div className="relative z-10 mx-auto w-full max-w-[1120px]">
             <div
-              className="anim-fade-up ml-auto max-w-[620px] rounded-2xl border border-white/70 bg-white/40 p-6 text-center md:text-right text-[#1e293b] shadow-[0_18px_50px_rgba(15,23,42,0.22)] backdrop-blur-md sm:p-8 lg:p-10 "
-              style={{ animationDelay: "220ms" }}
+              className="ml-auto max-w-[620px] rounded-2xl border border-white/70 bg-white/20 p-6 text-center md:text-right text-[#1e293b] shadow-[0_18px_50px_rgba(15,23,42,0.22)] backdrop-blur-md sm:p-8 lg:p-10"
             >
-              <p className="text-xs font-semibold tracking-[0.24em] text-[#475569]">PREMIUM RESIDENCE</p>
-              <h1 className="mt-3 text-4xl font-extrabold leading-tight text-[#0f172a] sm:text-5xl lg:text-6xl">{HERO_TEXT.title}</h1>
-              <p className="mt-5 text-base font-semibold leading-relaxed text-[#1e293b] sm:text-lg lg:text-2xl">{HERO_TEXT.desc1}</p>
-              <p className="mt-2 text-base font-medium leading-relaxed text-[#334155] sm:text-lg lg:text-2xl">{HERO_TEXT.desc2}</p>
+              <p key={`tag-${currentSlide}`} className="anim-fade-up text-xs font-semibold tracking-[0.24em] text-[#ffff]">
+                {HERO_SLIDES[currentSlide].tag}
+              </p>
+              <h1 key={`title-${currentSlide}`} className="anim-fade-up mt-3 text-4xl font-bold leading-tight text-[#ffbf86] sm:text-5xl lg:text-6xl text-shadow-md" style={{ animationDelay: "60ms" }}>
+                {HERO_SLIDES[currentSlide].title}
+              </h1>
+              <p key={`desc1-${currentSlide}`} className="anim-fade-up mt-5 text-base font-semibold leading-relaxed text-[#1e293b] sm:text-lg lg:text-2xl" style={{ animationDelay: "120ms" }}>
+                {HERO_SLIDES[currentSlide].desc1}
+              </p>
+              <p key={`desc2-${currentSlide}`} className="anim-fade-up mt-2 text-base font-medium leading-relaxed text-[#334155] sm:text-lg lg:text-2xl" style={{ animationDelay: "180ms" }}>
+                {HERO_SLIDES[currentSlide].desc2}
+              </p>
               <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-end gap-3">
-                <Link href="/inquiry" className="rounded-full bg-[#0f172a] px-5 py-2 text-sm font-bold text-white shadow-sm">
+                <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#0f172a] px-5 py-2 text-sm font-bold text-white shadow-sm">
                   입실 문의
-                </Link>
+                </a>
                 <Link href="/about" className="rounded-full border border-[#0f172a]/20 bg-white/75 px-5 py-2 text-sm font-bold text-[#0f172a]">
                   자세히 보기
                 </Link>
+              </div>
+              {/* 슬라이드 인디케이터 */}
+              <div className="mt-6 flex justify-center md:justify-end gap-2">
+                {HERO_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentSlide ? "w-6 bg-white" : "w-1.5 bg-white/40"}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -90,7 +152,11 @@ export default function Home() {
 
             <div className="order-1 text-center md:order-2 md:text-right lg:max-w-[430px]">
               <p className="text-sm font-medium text-[#6a6a6a]">Welcome to</p>
-              <h2 className="mt-1 text-5xl font-extrabold tracking-tight">SUN원룸텔</h2>
+              <div className="flex w-full text-center md:text-right">
+                <h2 className="mt-1 text-5xl font-extrabold tracking-tight text-[#F00949]">SUN</h2>
+                <h2 className="mt-1 text-5xl font-extrabold tracking-tight text-[#EC7D1E]">원룸텔</h2>
+              </div>
+
               <p className="mt-4 text-sm leading-7 text-[#525252]">
                 넓은 옥상테라스, 휴식공간, 전용주차장, 무료 인터넷
                 <br />
@@ -143,9 +209,9 @@ export default function Home() {
               <h4 className="text-2xl font-extrabold">{selectedRoom.title}</h4>
               <p className="mt-2 text-sm text-[#555]">{selectedRoom.price}</p>
               <div className="mt-5 flex items-center justify-center gap-3">
-                <Link href="/inquiry" className="rounded-full bg-[#20282d] px-6 py-2 text-xs font-semibold text-white">
+                <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#20282d] px-6 py-2 text-xs font-semibold text-white">
                   입실 문의
-                </Link>
+                </a>
                 <Link href={`/rooms/${selectedRoom.slug}`} className="rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
                   상세 보기
                 </Link>
