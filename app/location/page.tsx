@@ -42,7 +42,7 @@ export default function LocationPage() {
             </p>
           </a>
           <iframe
-            title="썬원룸텔 독산역점 위치 지도"
+            title="썬원룸텔 금촌역점 위치 지도"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8984233720475!2d126.77448477588325!3d37.768979871986865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c8d8605a7b233%3A0xe7e288e1392214a6!2z7I2s7JuQ66O47YWU!5e0!3m2!1sko!2skr!4v1770202204229!5m2!1sko!2skr"
             className="h-[420px] w-full md:h-[520px]"
             loading="lazy"

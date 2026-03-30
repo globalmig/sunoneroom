@@ -1,22 +1,23 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const SERVICE_ITEMS = [
   {
     en: "Monthly Rent",
     title: "합리적인 가격",
-    points: ["1개월 단위 거주 가능", "2인 거주 가능(협의)", "최소 보증금으로 초기 부담 완화"],
+    points: ["1개월 단위 거주 가능", "2인 거주 가능(협의)", "보증금 36만원 가능"],
     icon: "https://cdn.qshop.ai/22039/gallery/ee67c9a0e45f11efbd5d5db052f3b3f0.png",
   },
   {
     en: "Room Option",
     title: "룸 옵션",
-    points: ["침대·책상·행거 등 기본 가구 제공", "전 객실 WIFI 사용 가능", "주기적인 소방 안전 관리", "개인 에어컨 제공"],
+    points: ["조용한 각방", "침대·책상·행거 등 기본 가구 제공", "전 객실 WIFI 사용 가능", "주기적인 소방 안전 관리", "개인 에어컨 제공", "개인 샤워부스"],
     icon: "https://cdn.qshop.ai/22039/gallery/d510aa80e45f11efbd5d5db052f3b3f0.png",
   },
   {
     en: "Food Service",
     title: "푸드 서비스",
-    points: ["원두커피 / 얼음 제공", "전자레인지 / 토스트기 비치", "라면·김치·조미료·컵·접시·쟁반·도마 등 구비"],
+    points: ["원두커피 / 얼음 제공", "전자레인지 / 토스트기 비치", "라면·밥·김치·조미료·컵·접시·쟁반·도마 등 구비"],
     icon: "https://cdn.qshop.ai/22039/gallery/dd7e6950e45f11efbd5d5db052f3b3f0.png",
   },
   {
@@ -34,15 +35,15 @@ const SERVICE_ITEMS = [
   {
     en: "Other",
     title: "기타 서비스",
-    points: ["주 단위 정기 소독", "주차 가능 (협의)", "4층 대형 테라스 - 운동, 세탁, 담배 가능"],
+    points: ["매일 청결/청소 관리", "주 단위 정기 소독", "주차 가능 (협의)", "4층 대형 테라스 - 운동, 세탁, 담배 가능"],
     icon: "https://cdn.qshop.ai/22039/gallery/47ee5610e46011efbd5d5db052f3b3f0.png",
   },
 ];
 
 const KEY_FACTS = [
-  { label: "역세권 접근", value: "독산역 도보 5분" },
+  { label: "역세권 접근", value: "금촌역 도보 5분" },
   { label: "운영 방식", value: "월 단위 단기 거주" },
-  { label: "생활 편의", value: "24시간 출입 가능" },
+  { label: "편의점, 대형마트", value: "2분 가까운 거리" },
 ];
 
 export default function AboutPage() {
@@ -90,11 +91,20 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="h-[320px] bg-cover bg-center bg-no-repeat lg:h-[420px] lg:bg-fixed"
+        className="flex h-[320px] items-center justify-center bg-cover bg-center bg-no-repeat lg:h-[420px] lg:bg-fixed"
         style={{
-          backgroundImage: "linear-gradient(rgba(17,24,35,.34), rgba(17,24,35,.34)), url('/images/about_bg.png')",
+          backgroundImage: "linear-gradient(rgba(17,24,35,.55), rgba(17,24,35,.55)), url('/images/about_bg.png')",
         }}
-      />
+      >
+        <div className="text-center text-white">
+          <p className="text-sm tracking-[0.22em] opacity-75">TERRACE</p>
+          <h2 className="mt-3 text-4xl font-extrabold lg:text-5xl">넓은 테라스 공간</h2>
+          <p className="mt-4 text-base leading-8 opacity-80">
+            운동, 세탁, 흡연까지 — 다용도로 자유롭게 사용 가능한
+            <br className="hidden lg:block" /> 4층 대형 테라스를 누려보세요.
+          </p>
+        </div>
+      </section>
 
       <section className="px-4 pb-24 pt-18">
         <div className="mx-auto max-w-[1200px]">
@@ -129,6 +139,52 @@ export default function AboutPage() {
                 </ul>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="anim-fade-up mb-12 flex flex-col items-start justify-between gap-4 border-b border-black/10 pb-6">
+            <p className="text-sm tracking-[0.14em] text-[#7a7a7a]">BUILDING & PARKING</p>
+            <h2 className="mt-2 text-5xl font-extrabold">건물 및 주차장</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {["/images/build01.png", "/images/build02.png", "/images/build03.png"].map((src, idx) => (
+              <div key={src} className="anim-fade-up relative min-h-[280px] overflow-hidden rounded-3xl" style={{ animationDelay: `${idx * 100}ms` }}>
+                <Image src={src} alt={`건물 및 주차장 이미지 ${idx + 1}`} fill className="object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="anim-fade-up mb-10 text-center">
+            <p className="text-sm tracking-[0.14em] text-[#7a7a7a]">ROOMS</p>
+            <h2 className="mt-2 text-5xl font-extrabold">방 안의 모습이 궁금하신가요?</h2>
+            <p className="mt-4 text-base text-[#4f5661]">실제 객실 사진과 상세 정보를 확인해보세요.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <Link href="/rooms/standard-room" className="anim-fade-up group relative min-h-[320px] overflow-hidden rounded-3xl">
+              <Image src="/images/room/floor_02_01.png" alt="개인시설 2층" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <p className="text-sm tracking-[0.14em] opacity-80">2F</p>
+                <h3 className="mt-1 text-3xl font-extrabold">개인시설 2층</h3>
+                <p className="mt-3 inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4">자세히 보기 →</p>
+              </div>
+            </Link>
+            <Link href="/rooms/deluxe-room" className="anim-fade-up group relative min-h-[320px] overflow-hidden rounded-3xl" style={{ animationDelay: "120ms" }}>
+              <Image src="/images/room/3_1.png" alt="개인시설 3층" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <p className="text-sm tracking-[0.14em] opacity-80">3F</p>
+                <h3 className="mt-1 text-3xl font-extrabold">개인시설 3층</h3>
+                <p className="mt-3 inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4">자세히 보기 →</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

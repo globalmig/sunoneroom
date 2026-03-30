@@ -11,26 +11,26 @@ const HERO_SLIDES = [
     image: "/images/room/main.png",
     tag: "PREMIUM RESIDENCE",
     title: "SUN원룸텔",
-    desc1: "금촌역 2번 출구 도보 5분, 전용 주차장 보유",
-    desc2: "안전한 보안·소방 설비와 쾌적한 관리의 편안한 원룸텔",
+    desc1: "금촌역 도보 5분 · 전용 주차장",
+    desc2: "안전한 보안·소방 설비, 쾌적하게 관리되는 원룸텔",
   },
   {
-    image: "/images/room/1.png",
+    image: "/images/room/floor_02_01.png",
     tag: "FULL OPTION",
     title: "풀옵션 생활공간",
-    desc1: "냉장고·에어컨·세탁기 등 모든 가구 완비",
-    desc2: "짐 없이 바로 입실 가능한 올인클루시브 원룸텔",
+    desc1: "냉장고 · 에어컨 · 세탁기 등 모든 가구 완비",
+    desc2: "짐 없이 바로 입실 — 올인클루시브 원룸텔",
   },
   {
-    image: "/images/room/2.png",
+    image: "/images/build03.png",
     tag: "COMFORT & SECURITY",
-    title: "쾌적한 보안 시설",
-    desc1: "옥상 테라스, 공용 휴식 공간, 무료 인터넷 제공",
-    desc2: "24시간 CCTV와 소방 설비로 안심하는 생활 환경",
+    title: "편안하고 안전한 환경",
+    desc1: "옥상 테라스 · 공용 휴식 공간 · 무료 인터넷",
+    desc2: "24시간 CCTV · 소방 설비로 늘 안심하세요",
   },
 ];
 
-const INTRO_IMAGES = ["/images/room/1.png", "/images/room/2.png"];
+const INTRO_IMAGES = ["/images/room/1.png", "/images/build03.png"];
 
 // const BLOG_CARDS = [
 //   {
@@ -99,19 +99,25 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/0 via-[#0f172a]/10 to-[#0f172a]/12" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(255,205,138,0.32),transparent_42%),radial-gradient(circle_at_62%_74%,rgba(147,197,253,0.24),transparent_40%)]" />
           <div className="relative z-10 mx-auto w-full max-w-[1120px]">
-            <div
-              className="ml-auto max-w-[620px] rounded-2xl border border-white/70 bg-white/20 p-6 text-center md:text-right text-[#1e293b] shadow-[0_18px_50px_rgba(15,23,42,0.22)] backdrop-blur-md sm:p-8 lg:p-10"
-            >
-              <p key={`tag-${currentSlide}`} className="anim-fade-up text-xs font-semibold tracking-[0.24em] text-[#ffff]">
+            <div className="ml-auto max-w-[620px] rounded-2xl border border-white/70 bg-white/20 p-6 text-center md:text-right text-[#1e293b] shadow-[0_18px_50px_rgba(15,23,42,0.22)] backdrop-blur-sm sm:p-8 lg:p-10">
+              <p key={`tag-${currentSlide}`} className="anim-fade-up text-xs font-semibold tracking-[0.24em] text-white/90" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
                 {HERO_SLIDES[currentSlide].tag}
               </p>
-              <h1 key={`title-${currentSlide}`} className="anim-fade-up mt-3 text-4xl font-bold leading-tight text-[#ffbf86] sm:text-5xl lg:text-6xl text-shadow-md" style={{ animationDelay: "60ms" }}>
+              <h1 key={`title-${currentSlide}`} className="anim-fade-up mt-3 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl" style={{ animationDelay: "60ms", textShadow: "0 2px 12px rgba(0,0,0,0.75)" }}>
                 {HERO_SLIDES[currentSlide].title}
               </h1>
-              <p key={`desc1-${currentSlide}`} className="anim-fade-up mt-5 text-base font-semibold leading-relaxed text-[#1e293b] sm:text-lg lg:text-2xl" style={{ animationDelay: "120ms" }}>
+              <p
+                key={`desc1-${currentSlide}`}
+                className="anim-fade-up mt-5 text-base font-semibold leading-relaxed text-white sm:text-lg lg:text-xl"
+                style={{ animationDelay: "120ms", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+              >
                 {HERO_SLIDES[currentSlide].desc1}
               </p>
-              <p key={`desc2-${currentSlide}`} className="anim-fade-up mt-2 text-base font-medium leading-relaxed text-[#334155] sm:text-lg lg:text-2xl" style={{ animationDelay: "180ms" }}>
+              <p
+                key={`desc2-${currentSlide}`}
+                className="anim-fade-up mt-2 text-sm font-medium leading-relaxed text-white/85 sm:text-base lg:text-lg"
+                style={{ animationDelay: "180ms", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+              >
                 {HERO_SLIDES[currentSlide].desc2}
               </p>
               <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-end gap-3">
@@ -151,13 +157,13 @@ export default function Home() {
             </div>
 
             <div className="order-1 text-center md:order-2 md:text-right lg:max-w-[430px]">
-              <p className="text-sm font-medium text-[#6a6a6a]">Welcome to</p>
-              <div className="flex w-full text-center md:text-right">
+              <p className="text-sm font-medium text-left text-[#6a6a6a]">Welcome to</p>
+              <div className="flex w-full text-center md:text-left">
                 <h2 className="mt-1 text-5xl font-extrabold tracking-tight text-[#F00949]">SUN</h2>
                 <h2 className="mt-1 text-5xl font-extrabold tracking-tight text-[#EC7D1E]">원룸텔</h2>
               </div>
 
-              <p className="mt-4 text-sm leading-7 text-[#525252]">
+              <p className="mt-4 text-sm leading-7 text-[#525252] text-left">
                 넓은 옥상테라스, 휴식공간, 전용주차장, 무료 인터넷
                 <br />
                 Full Option 원룸텔

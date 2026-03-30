@@ -75,6 +75,16 @@ export default function RoomGallery({ images, title }: RoomGalleryProps) {
             </button>
           ))}
         </div>
+
+        {galleryImages.length > 4 && (
+          <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
+            {galleryImages.slice(4).map((src, index) => (
+              <button key={src} type="button" onClick={() => setActiveIndex(index + 5)} className="relative aspect-4/3 overflow-hidden rounded-2xl text-left">
+                <Image src={src} alt={`${title} 상세 이미지 ${index + 5}`} fill className="object-cover" />
+              </button>
+            ))}
+          </div>
+        )}
       </section>
 
       {modalImage && (

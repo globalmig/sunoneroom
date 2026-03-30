@@ -9,11 +9,10 @@ interface RoomDetailPageProps {
 }
 
 const BASIC_INFO_ITEMS = [
+  { label: "공간 특징", value: "조용한 독립 각방" },
   { label: "거주 기간", value: "1개월 단위 계약 가능" },
   { label: "입실 인원", value: "최대 2인 (룸 타입별 상이)" },
   { label: "주차장", value: "전용주차장 사용 가능" },
-  // { label: "체크인", value: "오후 1시" },
-  // { label: "체크아웃", value: "오전 11시" },
 ];
 
 const GUIDE_ITEMS = [
@@ -31,13 +30,13 @@ const GUIDE_ITEMS = [
   },
   {
     title: "생활 지원",
-    description: "택배 수령, 분리수거, 비상 연락 등 기본 생활 안내를 제공합니다.",
+    description: "개인 샤워부스, 택배 수령, 분리수거, 비상 연락 등 기본 생활 안내를 제공합니다.",
   },
 ];
 
 const PROVIDED_ITEMS = [
   { title: "가구", items: ["침대", "책상", "의자", "수납장", "행거"] },
-  { title: "가전", items: ["냉장고", "전자레인지", "개별 에어컨"] },
+  { title: "가전", items: ["냉장고", "전자레인지", "개별 에어컨", "개인 샤워부스"] },
   { title: "네트워크", items: ["초고속 인터넷", "Wi-Fi"] },
 ];
 
@@ -106,6 +105,19 @@ function FacilityIcon({ name }: { name: string }) {
         <svg {...commonProps}>
           <rect x="4" y="6" width="16" height="12" rx="2" />
           <path d="M8 10h6v4H8zM17 10v4M17 8v.01M17 16v.01" />
+        </svg>
+      );
+    case "개인 샤워부스":
+      return (
+        <svg {...commonProps}>
+          {/* 부스 박스 */}
+          <rect x="3" y="3" width="18" height="18" rx="1.5" />
+          {/* 파이프: 벽에서 수평으로 나와 아래로 꺾임 */}
+          <path d="M16 3v5h-4" />
+          {/* 샤워헤드 (가로 막대) */}
+          <path d="M10 8h4" strokeWidth={2.5} />
+          {/* 물줄기 */}
+          <path d="M11 11v2M13 11v2M15 11v2" />
         </svg>
       );
     case "개별 에어컨":
@@ -222,8 +234,8 @@ export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7f8a91]">Room Detail</p>
             <h1 className="mt-2 text-3xl font-bold lg:text-4xl">{room.title}</h1>
             <p className="mt-4 text-sm leading-relaxed text-[#586269]">
-              채광, 수납, 동선을 균형 있게 구성한 개인 공간입니다.
-              <br /> 장기 거주에 맞춰 필요한 핵심 요소를 간결하게 담았습니다.
+              외부 소음이 차단된 조용한 독립 각방으로, 혼자만의 온전한 공간을 누릴 수 있습니다.
+              <br />채광·수납·동선을 균형 있게 구성해 장기 거주에도 편안합니다.
             </p>
 
             <div className="mt-6 space-y-3 border-y border-black/10 py-5 text-sm text-[#4a545b]">

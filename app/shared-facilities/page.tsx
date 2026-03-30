@@ -226,7 +226,7 @@ export default async function SharedFacilitiesPage({ searchParams }: SharedFacil
 
         <div className="mb-12 text-center sm:mb-16">
           <h1 className="text-4xl font-extrabold sm:text-5xl">{activeTab === "facilities" ? "공용시설" : "서비스 안내"}</h1>
-          <p className="mt-3 text-sm leading-6 text-[#7a7a7a]">SUN원룸텔 독산역점 공용시설 안내</p>
+          <p className="mt-3 text-sm leading-6 text-[#7a7a7a]">SUN원룸텔 금촌역점 공용시설 안내</p>
         </div>
 
         {activeTab === "facilities" ? (
