@@ -248,7 +248,7 @@ export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
             </div>
 
             <div className="mt-6">
-              <a href="tel:028023013" className="block rounded-xl bg-[#20282d] px-4 py-3 text-center text-sm font-medium text-white">
+              <a href="tel:031-948-2133" className="block rounded-xl bg-[#20282d] px-4 py-3 text-center text-sm font-medium text-white">
                 전화 문의
               </a>
             </div>
