@@ -25,9 +25,9 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link href="/inquiry" className="ml-auto hidden rounded-full bg-[#20282d] px-6 py-2.5 text-xs text-white lg:block">
+        {/* <Link href="/inquiry" className="ml-auto hidden rounded-full bg-[#20282d] px-6 py-2.5 text-xs text-white lg:block">
           입실문의
-        </Link>
+        </Link> */}
 
         <button type="button" className="ml-auto flex h-10 w-10 items-center justify-center text-2xl lg:hidden" aria-label="메뉴 열기">
           <span className="flex flex-col gap-1">
