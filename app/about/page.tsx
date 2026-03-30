@@ -96,14 +96,14 @@ export default function AboutPage() {
           backgroundImage: "linear-gradient(rgba(17,24,35,.55), rgba(17,24,35,.55)), url('/images/about_bg.png')",
         }}
       >
-        <div className="text-center text-white">
+        {/* <div className="text-center text-white">
           <p className="text-sm tracking-[0.22em] opacity-75">TERRACE</p>
           <h2 className="mt-3 text-4xl font-extrabold lg:text-5xl">넓은 테라스 공간</h2>
           <p className="mt-4 text-base leading-8 opacity-80">
             운동, 세탁, 흡연까지 — 다용도로 자유롭게 사용 가능한
             <br className="hidden lg:block" /> 4층 대형 테라스를 누려보세요.
           </p>
-        </div>
+        </div> */}
       </section>
 
       <section className="px-4 pb-24 pt-18">

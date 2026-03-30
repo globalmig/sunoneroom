@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/layout/Header";
 import { ROOM_TYPES, type RoomTypeKey } from "@/lib/rooms";
 
 const HERO_SLIDES = [
@@ -54,6 +53,7 @@ const PHONE = "031-948-2133";
 
 export default function Home() {
   const [activeRoom, setActiveRoom] = useState<RoomTypeKey>("A");
+  const [activeFloor, setActiveFloor] = useState<"2층" | "3층">("2층");
   const [copied, setCopied] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -103,7 +103,11 @@ export default function Home() {
               <p key={`tag-${currentSlide}`} className="anim-fade-up text-xs font-semibold tracking-[0.24em] text-white/90" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
                 {HERO_SLIDES[currentSlide].tag}
               </p>
-              <h1 key={`title-${currentSlide}`} className="anim-fade-up mt-3 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl" style={{ animationDelay: "60ms", textShadow: "0 2px 12px rgba(0,0,0,0.75)" }}>
+              <h1
+                key={`title-${currentSlide}`}
+                className="anim-fade-up mt-3 text-4xl font-bold leading-tight text-amber-400 sm:text-5xl lg:text-6xl"
+                style={{ animationDelay: "60ms", textShadow: "0 2px 12px rgba(0,0,0,0.75)" }}
+              >
                 {HERO_SLIDES[currentSlide].title}
               </h1>
               <p
@@ -220,6 +224,53 @@ export default function Home() {
                 </a>
                 <Link href={`/rooms/${selectedRoom.slug}`} className="rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
                   상세 보기
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-8">
+          <div className="mx-auto w-full max-w-[1120px] px-4 lg:px-0">
+            <div className="anim-fade-up pb-10 text-center">
+              <p className="text-sm text-[#666]">Shared Facilities</p>
+              <h3 className="mt-2 text-5xl font-extrabold">공동시설</h3>
+              <p className="mt-4 text-sm leading-6 text-[#707070]">
+                각 층마다 편리하게 이용할 수 있는
+                <br />
+                공용 주방, 세탁실, 휴식 공간을 제공합니다
+              </p>
+              <div className="mt-8 inline-flex rounded-full border border-black/10 bg-white p-1 text-sm shadow-sm">
+                {(["2층", "3층"] as const).map((floor) => {
+                  const isActive = activeFloor === floor;
+                  return (
+                    <button
+                      key={floor}
+                      type="button"
+                      onClick={() => setActiveFloor(floor)}
+                      aria-pressed={isActive}
+                      className={isActive ? "rounded-full bg-[#20282d] px-5 py-2 font-semibold text-white" : "px-5 py-2 text-[#7d7d7d]"}
+                    >
+                      {floor} 공동시설
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {[1, 2, 3].map((n) => (
+                <div key={`${activeFloor}-${n}`} className="anim-fade-up relative aspect-3/2 overflow-hidden rounded-2xl bg-white sm:aspect-4/3">
+                  <Image src={`/images/room/${activeFloor === "2층" ? "2" : "3"}/common/${n}.webp`} alt={`${activeFloor} 공동시설 ${n}`} fill className="object-cover" />
+                </div>
+              ))}
+            </div>
+
+            <div className="anim-fade-up mt-8 rounded-2xl border border-black/10 bg-white p-8 text-center shadow-sm">
+              <h4 className="text-2xl font-extrabold">{activeFloor} 공동시설</h4>
+              <div className="mt-5 flex items-center justify-center gap-3">
+                <Link href="/shared-facilities?tab=photos" className="rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
+                  전체 사진 보기
                 </Link>
               </div>
             </div>

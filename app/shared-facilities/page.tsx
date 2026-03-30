@@ -1,6 +1,7 @@
 import Link from "next/link";
+import PhotoGallery from "@/components/shared/PhotoGallery";
 
-type TabKey = "facilities" | "services";
+type TabKey = "facilities" | "services" | "photos";
 
 interface SectionData {
   title: string;
@@ -208,37 +209,62 @@ interface SharedFacilitiesPageProps {
   searchParams: Promise<{ tab?: string }>;
 }
 
+const FLOOR_PHOTOS: Record<string, { floor: string; images: string[] }[]> = {
+  "2층": [{ floor: "2층", images: Array.from({ length: 16 }, (_, i) => `/images/room/2/common/${i + 1}.webp`) }],
+  "3층": [{ floor: "3층", images: Array.from({ length: 9 }, (_, i) => `/images/room/3/common/${i + 1}.webp`) }],
+};
+
 export default async function SharedFacilitiesPage({ searchParams }: SharedFacilitiesPageProps) {
   const { tab } = await searchParams;
-  const activeTab: TabKey = tab === "services" ? "services" : "facilities";
+  const activeTab: TabKey = tab === "services" ? "services" : tab === "photos" ? "photos" : "facilities";
+
+  const TAB_LABELS: { key: TabKey; label: string }[] = [
+    { key: "facilities", label: "공용시설" },
+    { key: "services", label: "서비스 안내" },
+    { key: "photos", label: "공동시설 사진" },
+  ];
 
   return (
     <main className="bg-[#f4f4f4] px-4 pb-20 pt-[110px] text-[#20282d] sm:pt-[120px]">
       <div className="mx-auto max-w-[1120px]">
         <div className="mb-8 flex justify-center gap-8 border-b border-black/10 pb-4 text-sm sm:text-base">
-          <Link href="/shared-facilities?tab=facilities" className={activeTab === "facilities" ? "border-b-2 border-[#20282d] pb-1 font-bold" : "pb-1 text-[#8a8a8a]"}>
-            공용시설
-          </Link>
-          <Link href="/shared-facilities?tab=services" className={activeTab === "services" ? "border-b-2 border-[#20282d] pb-1 font-bold" : "pb-1 text-[#8a8a8a]"}>
-            서비스 안내
-          </Link>
+          {TAB_LABELS.map(({ key, label }) => (
+            <Link key={key} href={`/shared-facilities?tab=${key}`} className={activeTab === key ? "border-b-2 border-[#20282d] pb-1 font-bold" : "pb-1 text-[#8a8a8a]"}>
+              {label}
+            </Link>
+          ))}
         </div>
 
         <div className="mb-12 text-center sm:mb-16">
-          <h1 className="text-4xl font-extrabold sm:text-5xl">{activeTab === "facilities" ? "공용시설" : "서비스 안내"}</h1>
+          <h1 className="text-4xl font-extrabold sm:text-5xl">
+            {activeTab === "facilities" ? "공용시설" : activeTab === "services" ? "서비스 안내" : "공동시설 사진"}
+          </h1>
           <p className="mt-3 text-sm leading-6 text-[#7a7a7a]">SUN원룸텔 금촌역점 공용시설 안내</p>
         </div>
 
-        {activeTab === "facilities" ? (
+        {activeTab === "facilities" && (
           <div className="space-y-14">
             {FACILITY_SECTIONS.map((section) => (
               <InfoGroup key={section.title} data={section} />
             ))}
           </div>
-        ) : (
+        )}
+
+        {activeTab === "services" && (
           <div className="space-y-14">
             {SERVICE_SECTIONS.map((section) => (
               <InfoGroup key={section.title} data={section} />
+            ))}
+          </div>
+        )}
+
+        {activeTab === "photos" && (
+          <div className="space-y-14">
+            {Object.entries(FLOOR_PHOTOS).map(([floorKey, data]) => (
+              <div key={floorKey}>
+                <h2 className="mb-5 text-2xl font-extrabold">{floorKey} 공동시설</h2>
+                <PhotoGallery images={data[0].images} alt={`${floorKey} 공동시설`} />
+              </div>
             ))}
           </div>
         )}
