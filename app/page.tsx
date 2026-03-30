@@ -29,7 +29,7 @@ const HERO_SLIDES = [
   },
 ];
 
-const INTRO_IMAGES = ["/images/room/1.png", "/images/build03.png"];
+const INTRO_IMAGES = ["/images/hallway.jpg", "/images/build03.png"];
 
 // const BLOG_CARDS = [
 //   {
@@ -259,9 +259,9 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {[1, 2, 3].map((n) => (
+              {(activeFloor === "2층" ? [1, 2, 3] : [1, 5, 7]).map((n) => (
                 <div key={`${activeFloor}-${n}`} className="anim-fade-up relative aspect-3/2 overflow-hidden rounded-2xl bg-white sm:aspect-4/3">
-                  <Image src={`/images/room/${activeFloor === "2층" ? "2" : "3"}/common/${n}.webp`} alt={`${activeFloor} 공동시설 ${n}`} fill className="object-cover" />
+                  <Image src={`/images/room/${activeFloor === "2층" ? "2" : "3"}/common/${n}.webp`} alt={`${activeFloor} 공동시설 ${n}`} fill className="object-cover" unoptimized />
                 </div>
               ))}
             </div>
