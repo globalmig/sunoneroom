@@ -21,13 +21,14 @@ const GUIDE_ITEMS = [
     description: "보증금 및 관리비는 상담 시 룸 타입에 따라 상세 안내됩니다.",
   },
   {
-    title: "공용 공간 이용",
-    description: "세탁실, 공용 주방 등 공용 시설을 규정에 맞춰 자유롭게 이용할 수 있습니다.",
-  },
-  {
     title: "입실 절차",
     description: "입실 전 룸 컨디션 확인 후 계약서 작성 및 이용 수칙 안내가 진행됩니다.",
   },
+  {
+    title: "공용 공간 이용",
+    description: "세탁실, 공용 주방 등 공용 시설을 규정에 맞춰 자유롭게 이용할 수 있습니다.",
+  },
+
   {
     title: "생활 지원",
     description: "개인 샤워부스, 택배 수령, 분리수거, 비상 연락 등 기본 생활 안내를 제공합니다.",
@@ -235,7 +236,8 @@ export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
             <h1 className="mt-2 text-3xl font-bold lg:text-4xl">{room.title}</h1>
             <p className="mt-4 text-sm leading-relaxed text-[#586269]">
               외부 소음이 차단된 조용한 독립 각방으로, 혼자만의 온전한 공간을 누릴 수 있습니다.
-              <br />채광·수납·동선을 균형 있게 구성해 장기 거주에도 편안합니다.
+              <br />
+              채광·수납·동선을 균형 있게 구성해 장기 거주에도 편안합니다.
             </p>
 
             <div className="mt-6 space-y-3 border-y border-black/10 py-5 text-sm text-[#4a545b]">

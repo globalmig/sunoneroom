@@ -10,7 +10,7 @@ const HERO_SLIDES = [
     image: "/images/room/main.png",
     tag: "PREMIUM RESIDENCE",
     title: "SUN원룸텔",
-    desc1: "금촌역 도보 5분 · 전용 주차장",
+    desc1: "금촌역 2번 출구 도보 5분 · 전용 주차장",
     desc2: "안전한 보안·소방 설비, 쾌적하게 관리되는 원룸텔",
   },
   {
@@ -18,7 +18,7 @@ const HERO_SLIDES = [
     tag: "FULL OPTION",
     title: "풀옵션 생활공간",
     desc1: "냉장고 · 에어컨 · 세탁기 등 모든 가구 완비",
-    desc2: "짐 없이 바로 입실 — 올인클루시브 원룸텔",
+    desc2: "짐 없이 바로 입실 — 풀옵션 원룸텔",
   },
   {
     image: "/images/build03.png",
@@ -29,7 +29,13 @@ const HERO_SLIDES = [
   },
 ];
 
-const INTRO_IMAGES = ["/images/hallway.jpg", "/images/build03.png"];
+const INTRO_IMAGES = ["/images/room/2/common/1.webp", "/images/build03.png"];
+const INTRO_FEATURES = ["옥상 테라스", "전용 주차장", "엘리베이터", "무료 인터넷", "풀옵션", "철저한 보안"];
+// const INTRO_HIGHLIGHTS = [
+//   { value: "5분", label: "금촌역 도보" },
+//   { value: "24시간", label: "CCTV 보안" },
+//   { value: "즉시", label: "바로 입실 가능" },
+// ];
 
 // const BLOG_CARDS = [
 //   {
@@ -100,7 +106,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(255,205,138,0.32),transparent_42%),radial-gradient(circle_at_62%_74%,rgba(147,197,253,0.24),transparent_40%)]" />
           <div className="relative z-10 mx-auto w-full max-w-[1120px]">
             <div className="ml-auto max-w-[620px] rounded-2xl border border-white/70 bg-white/20 p-6 text-center md:text-right text-[#1e293b] shadow-[0_18px_50px_rgba(15,23,42,0.22)] backdrop-blur-sm sm:p-8 lg:p-10">
-              <p key={`tag-${currentSlide}`} className="anim-fade-up text-xs font-semibold tracking-[0.24em] text-white/90" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
+              <p key={`tag-${currentSlide}`} className="anim-fade-up text- font-semibold tracking-[0.24em] text-white" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
                 {HERO_SLIDES[currentSlide].tag}
               </p>
               <h1
@@ -112,14 +118,14 @@ export default function Home() {
               </h1>
               <p
                 key={`desc1-${currentSlide}`}
-                className="anim-fade-up mt-5 text-base font-semibold leading-relaxed text-white sm:text-lg lg:text-xl"
+                className="anim-fade-up mt-5 text-base font-semibold leading-relaxed text-white sm:text-xl lg:text-2xl"
                 style={{ animationDelay: "120ms", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
               >
                 {HERO_SLIDES[currentSlide].desc1}
               </p>
               <p
                 key={`desc2-${currentSlide}`}
-                className="anim-fade-up mt-2 text-sm font-medium leading-relaxed text-white/85 sm:text-base lg:text-lg"
+                className="anim-fade-up mt-2 text-sm font-medium leading-relaxed text-white sm:text-xl lg:text-2xl"
                 style={{ animationDelay: "180ms", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
               >
                 {HERO_SLIDES[currentSlide].desc2}
@@ -147,34 +153,69 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 lg:py-20">
+        <section className="py-16 lg:py-24">
           <div
-            className="anim-fade-up mx-auto grid w-full max-w-[1120px] gap-8 rounded-3xl border border-black/5 bg-white p-6 shadow-[0_20px_60px_rgba(16,24,40,0.08)]   lg:grid-cols-[1fr_auto] lg:items-center lg:p-10 "
+            className="anim-fade-up relative mx-auto w-full max-w-[1120px] overflow-hidden rounded-[2rem] border border-black/5 bg-[linear-gradient(135deg,#fff7ef_0%,#ffffff_42%,#f5f8fb_100%)] px-6 py-8 shadow-[0_24px_80px_rgba(16,24,40,0.10)] sm:px-8 lg:px-10 lg:py-10"
             style={{ animationDelay: "180ms" }}
           >
-            <div className="order-2 grid gap-3 md:order-1 md:grid-cols-2">
-              {INTRO_IMAGES.map((src) => (
-                <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-white">
-                  <Image src={src} alt="" fill className="object-cover" />
-                </div>
-              ))}
-            </div>
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(240,9,73,0.08),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(236,125,30,0.14),transparent_34%)]" />
 
-            <div className="order-1 text-center md:order-2 md:text-right lg:max-w-[430px]">
-              <p className="text-sm font-medium text-left text-[#6a6a6a]">Welcome to</p>
-              <div className="flex w-full text-center md:text-left">
-                <h2 className="mt-1 text-5xl font-extrabold tracking-tight text-[#F00949]">SUN</h2>
-                <h2 className="mt-1 text-5xl font-extrabold tracking-tight text-[#EC7D1E]">원룸텔</h2>
+            <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,460px)] lg:items-center">
+              <div className="order-2 lg:order-1">
+                <div className="relative mx-auto max-w-[620px] lg:mx-0">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#f7f1eb] shadow-[0_18px_45px_rgba(15,23,42,0.16)]">
+                    <Image src={INTRO_IMAGES[0]} alt="썬원룸텔 공용 공간" fill className="object-cover" />
+                  </div>
+
+                  <div className="absolute -bottom-5 left-4 w-[42%] overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-[0_14px_35px_rgba(15,23,42,0.14)] sm:-left-6 sm:w-[38%]">
+                    <div className="relative aspect-[4/5]">
+                      <Image src={INTRO_IMAGES[1]} alt="썬원룸텔 외관" fill className="object-cover" />
+                    </div>
+                  </div>
+
+                  <div className="absolute left-4 top-4 rounded-2xl border border-white/80 bg-white/92 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.10)] backdrop-blur sm:left-6 sm:top-6">
+                    <p className="text-[11px] font-semibold tracking-[0.22em] text-[#7a7a7a]">RESIDENCE VALUE</p>
+                    <p className="mt-1 text-lg font-extrabold text-[#1f2937]">편의성과 안정감을 모두 갖춘 생활공간</p>
+                  </div>
+                </div>
               </div>
 
-              <p className="mt-4 text-sm leading-7 text-[#525252] text-left">
-                넓은 옥상테라스, 휴식공간, 전용주차장, 무료 인터넷
-                <br />
-                Full Option 원룸텔
-              </p>
-              {/* <button type="button" className="mt-6 rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
-                풀옵션 썬원룸텔
-              </button> */}
+              <div className="order-1 lg:order-2">
+                <p className="text-sm font-semibold tracking-[0.26em] text-[#7b7f86]">WELCOME TO SUN</p>
+                <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-[#111827] sm:text-5xl">
+                  <span className="text-[#F00949]">SUN</span>
+                  <span className="text-[#EC7D1E]">원룸텔</span>
+                </h2>
+                <p className="mt-5 max-w-[42rem] text-base leading-8 text-[#4b5563]">
+                  역세권 접근성에 넉넉한 주차, 휴식 가능한 테라스와 공용 공간까지 갖춘 풀옵션 원룸텔입니다. 처음 입실하는 분도 바로 생활을 시작할 수 있도록 기본 생활 인프라를 안정적으로 정리했습니다.
+                </p>
+
+                {/* <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {INTRO_HIGHLIGHTS.map((item) => (
+                    <div key={item.label} className="rounded-2xl border border-black/5 bg-white/80 px-4 py-4 shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
+                      <p className="text-2xl font-extrabold text-[#111827]">{item.value}</p>
+                      <p className="mt-1 text-sm text-[#6b7280]">{item.label}</p>
+                    </div>
+                  ))}
+                </div> */}
+
+                <div className="mt-6 flex flex-wrap gap-2.5">
+                  {INTRO_FEATURES.map((feature) => (
+                    <span key={feature} className="rounded-full border border-[#111827]/10 bg-white/75 px-4 py-2 text-sm font-medium text-[#374151]">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#111827] px-6 py-3 text-center text-sm font-bold text-white shadow-[0_12px_24px_rgba(17,24,39,0.18)]">
+                    입실 문의
+                  </a>
+                  <Link href="/shared-facilities" className="rounded-full border border-[#111827]/15 bg-white/80 px-6 py-3 text-center text-sm font-bold text-[#111827]">
+                    시설 둘러보기
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -258,10 +299,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {(activeFloor === "2층" ? [1, 2, 3] : [1, 5, 7]).map((n) => (
-                <div key={`${activeFloor}-${n}`} className="anim-fade-up relative aspect-3/2 overflow-hidden rounded-2xl bg-white sm:aspect-4/3">
-                  <Image src={`/images/room/${activeFloor === "2층" ? "2" : "3"}/common/${n}.webp`} alt={`${activeFloor} 공동시설 ${n}`} fill className="object-cover" unoptimized />
+            <div className={`grid grid-cols-1 gap-4 ${activeFloor === "3층" ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3"}`}>
+              {(activeFloor === "2층"
+                ? ["/images/room/2/common/1.webp", "/images/room/2/common/2.webp", "/images/room/2/common/3.webp"]
+                : ["/images/room/3/common/1.webp", "/images/room/3/common/5.webp", "/images/room/3/common/7.webp", "/images/hallway.jpg"]
+              ).map((src, idx) => (
+                <div key={`${activeFloor}-${idx}`} className="anim-fade-up relative aspect-3/2 overflow-hidden rounded-2xl bg-white sm:aspect-4/3">
+                  <Image src={src} alt={`${activeFloor} 공동시설 ${idx + 1}`} fill className="object-cover" unoptimized />
                 </div>
               ))}
             </div>

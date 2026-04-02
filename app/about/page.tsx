@@ -5,7 +5,7 @@ const SERVICE_ITEMS = [
   {
     en: "Monthly Rent",
     title: "합리적인 가격",
-    points: ["1개월 단위 거주 가능", "2인 거주 가능(협의)", "보증금 0원, 월세 36만원 가능"],
+    points: ["1개월 단위 거주 가능", "2인 거주 가능(협의)", "보증금 0원, 월세 36만원부터 조정 가능"],
     icon: "https://cdn.qshop.ai/22039/gallery/ee67c9a0e45f11efbd5d5db052f3b3f0.png",
   },
   {
@@ -42,7 +42,7 @@ const SERVICE_ITEMS = [
 
 const KEY_FACTS = [
   { label: "역세권 접근", value: "금촌역 2번출구 도보 5분" },
-  { label: "운영 방식", value: "월 단위 단기 거주" },
+  { label: "운영 방식", value: "월 단위 장·단기 거주" },
   { label: "편의점, 대형마트", value: "2분 가까운 거리" },
 ];
 
@@ -93,7 +93,7 @@ export default function AboutPage() {
       <section
         className="flex h-[320px] items-center justify-center bg-cover bg-center bg-no-repeat lg:h-[420px] lg:bg-fixed"
         style={{
-          backgroundImage: "linear-gradient(rgba(17,24,35,.55), rgba(17,24,35,.55)), url('/images/about_bg.png')",
+          backgroundImage: " url('/images/about_bg.png')",
         }}
       >
         {/* <div className="text-center text-white">

@@ -211,7 +211,7 @@ interface SharedFacilitiesPageProps {
 
 const FLOOR_PHOTOS: Record<string, { floor: string; images: string[] }[]> = {
   "2층": [{ floor: "2층", images: Array.from({ length: 16 }, (_, i) => `/images/room/2/common/${i + 1}.webp`) }],
-  "3층": [{ floor: "3층", images: Array.from({ length: 9 }, (_, i) => `/images/room/3/common/${i + 1}.webp`) }],
+  "3층": [{ floor: "3층", images: [...Array.from({ length: 9 }, (_, i) => `/images/room/3/common/${i + 1}.webp`), "/images/hallway.jpg"] }],
 };
 
 export default async function SharedFacilitiesPage({ searchParams }: SharedFacilitiesPageProps) {
