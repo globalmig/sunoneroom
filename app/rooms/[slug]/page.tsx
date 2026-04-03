@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import PhoneInquiryButton from "@/components/common/PhoneInquiryButton";
 import RoomGallery from "@/components/rooms/RoomGallery";
 import RoomHeroSlider from "@/components/rooms/RoomHeroSlider";
 import { ROOM_TYPES } from "@/lib/rooms";
@@ -250,9 +251,9 @@ export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
             </div>
 
             <div className="mt-6">
-              <a href="tel:031-948-2133" className="block rounded-xl bg-[#20282d] px-4 py-3 text-center text-sm font-medium text-white">
+              <PhoneInquiryButton phone="031-948-2133" className="block rounded-xl bg-[#20282d] px-4 py-3 text-center text-sm font-medium text-white">
                 전화 문의
-              </a>
+              </PhoneInquiryButton>
             </div>
           </aside>
         </section>

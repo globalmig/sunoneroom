@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ROOM_TYPES, type RoomTypeKey } from "@/lib/rooms";
+import PhoneInquiryButton from "@/components/common/PhoneInquiryButton";
 
 const HERO_SLIDES = [
   {
@@ -60,7 +61,6 @@ const PHONE = "031-948-2133";
 export default function Home() {
   const [activeRoom, setActiveRoom] = useState<RoomTypeKey>("A");
   const [activeFloor, setActiveFloor] = useState<"2층" | "3층">("2층");
-  const [copied, setCopied] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -70,23 +70,10 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // 터치 미지원 = 데스크탑: 클립보드 복사
-    if (window.matchMedia("(hover: hover)").matches) {
-      e.preventDefault();
-      navigator.clipboard.writeText(PHONE).then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      });
-    }
-  };
-
   const selectedRoom = useMemo(() => ROOM_TYPES.find((room) => room.key === activeRoom) ?? ROOM_TYPES[0], [activeRoom]);
 
   return (
     <div className="min-h-screen bg-[#f3f5f6] text-[#20282d]">
-      {copied && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-[#20282d] px-5 py-2 text-sm text-white shadow-lg">전화번호가 복사되었습니다</div>}
-
       <main className="pb-16">
         <section className="relative flex min-h-[88vh] items-center justify-center md:justify-end px-4 pt-16 sm:px-6 lg:px-0 lg:pt-[74px]">
           {/* 슬라이드 배경 이미지 */}
@@ -131,9 +118,9 @@ export default function Home() {
                 {HERO_SLIDES[currentSlide].desc2}
               </p>
               <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-end gap-3 ">
-                <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#0f172a] px-5 py-2 text-sm font-bold text-white shadow-sm">
+                <PhoneInquiryButton phone={PHONE} className="rounded-full bg-[#0f172a] px-5 py-2 text-sm font-bold text-white shadow-sm">
                   입실 문의
-                </a>
+                </PhoneInquiryButton>
                 <Link href="/about" className="rounded-full border border-[#0f172a]/20 bg-white/75 px-5 py-2 text-sm font-bold text-[#0f172a]">
                   자세히 보기
                 </Link>
@@ -215,9 +202,9 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#111827] px-6 py-3 text-center text-sm font-bold text-white shadow-[0_12px_24px_rgba(17,24,39,0.18)]">
+                  <PhoneInquiryButton phone={PHONE} className="rounded-full bg-[#111827] px-6 py-3 text-center text-sm font-bold text-white shadow-[0_12px_24px_rgba(17,24,39,0.18)]">
                     입실 문의
-                  </a>
+                  </PhoneInquiryButton>
                   <Link href="/shared-facilities" className="rounded-full border border-[#111827]/15 bg-white/80 px-6 py-3 text-center text-sm font-bold text-[#111827]">
                     시설 둘러보기
                   </Link>
@@ -267,9 +254,9 @@ export default function Home() {
               <h4 className="text-2xl font-extrabold">{selectedRoom.title}</h4>
               <p className="mt-2 text-sm text-[#555]">{selectedRoom.price}</p>
               <div className="mt-5 flex items-center justify-center gap-3">
-                <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#20282d] px-6 py-2 text-xs font-semibold text-white">
+                <PhoneInquiryButton phone={PHONE} className="rounded-full bg-[#20282d] px-6 py-2 text-xs font-semibold text-white">
                   입실 문의
-                </a>
+                </PhoneInquiryButton>
                 <Link href={`/rooms/${selectedRoom.slug}`} className="rounded-full border border-[#20282d] px-6 py-2 text-xs font-semibold">
                   상세 보기
                 </Link>
