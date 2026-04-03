@@ -125,7 +125,7 @@ export default function Home() {
               </p>
               <p
                 key={`desc2-${currentSlide}`}
-                className="anim-fade-up mt-2 text-sm font-semibold leading-relaxed text-white sm:text-xl lg:text-2xl"
+                className="anim-fade-up mt-2 text-base font-semibold leading-relaxed text-white sm:text-xl lg:text-2xl"
                 style={{ animationDelay: "180ms", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
               >
                 {HERO_SLIDES[currentSlide].desc2}
@@ -162,21 +162,28 @@ export default function Home() {
 
             <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,460px)] lg:items-center">
               <div className="order-2 lg:order-1">
-                <div className="relative mx-auto max-w-[620px] lg:mx-0">
+                {/* 모바일/태블릿: 겹치지 않는 세로 스택 */}
+                <div className="mx-auto flex w-full max-w-[620px] flex-col gap-5 lg:hidden">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#f7f1eb] shadow-[0_18px_45px_rgba(15,23,42,0.16)]">
                     <Image src={INTRO_IMAGES[0]} alt="썬원룸텔 공용 공간" fill className="object-cover" />
                   </div>
+                  <div className="overflow-hidden rounded-[1.75rem] border border-white/80 bg-white p-2 shadow-[0_14px_35px_rgba(15,23,42,0.14)]">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem]">
+                      <Image src={INTRO_IMAGES[1]} alt="썬원룸텔 외관" fill className="object-cover" />
+                    </div>
+                  </div>
+                </div>
 
+                {/* PC: 기존 겹침 레이아웃 유지 */}
+                <div className="relative mx-auto hidden max-w-[620px] lg:block lg:mx-0">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#f7f1eb] shadow-[0_18px_45px_rgba(15,23,42,0.16)]">
+                    <Image src={INTRO_IMAGES[0]} alt="썬원룸텔 공용 공간" fill className="object-cover" />
+                  </div>
                   <div className="absolute -bottom-5 left-4 w-[42%] overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-[0_14px_35px_rgba(15,23,42,0.14)] sm:-left-6 sm:w-[38%]">
                     <div className="relative aspect-[4/5]">
                       <Image src={INTRO_IMAGES[1]} alt="썬원룸텔 외관" fill className="object-cover" />
                     </div>
                   </div>
-
-                  {/* <div className="absolute left-4 top-4 rounded-2xl border border-white/80 bg-white/92 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.10)] backdrop-blur sm:left-6 sm:top-6">
-                    <p className="text-[11px] font-semibold tracking-[0.22em] text-[#7a7a7a]">RESIDENCE VALUE</p>
-                    <p className="mt-1 text-lg font-extrabold text-[#1f2937]">편의성과 안정감을 모두 갖춘 생활공간</p>
-                  </div> */}
                 </div>
               </div>
 
