@@ -173,10 +173,10 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="absolute left-4 top-4 rounded-2xl border border-white/80 bg-white/92 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.10)] backdrop-blur sm:left-6 sm:top-6">
+                  {/* <div className="absolute left-4 top-4 rounded-2xl border border-white/80 bg-white/92 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.10)] backdrop-blur sm:left-6 sm:top-6">
                     <p className="text-[11px] font-semibold tracking-[0.22em] text-[#7a7a7a]">RESIDENCE VALUE</p>
                     <p className="mt-1 text-lg font-extrabold text-[#1f2937]">편의성과 안정감을 모두 갖춘 생활공간</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
