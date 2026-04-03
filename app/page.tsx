@@ -125,12 +125,12 @@ export default function Home() {
               </p>
               <p
                 key={`desc2-${currentSlide}`}
-                className="anim-fade-up mt-2 text-sm font-medium leading-relaxed text-white sm:text-xl lg:text-2xl"
+                className="anim-fade-up mt-2 text-sm font-semibold leading-relaxed text-white sm:text-xl lg:text-2xl"
                 style={{ animationDelay: "180ms", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
               >
                 {HERO_SLIDES[currentSlide].desc2}
               </p>
-              <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-end gap-3">
+              <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-end gap-3 ">
                 <a href={`tel:${PHONE}`} onClick={handlePhoneClick} className="rounded-full bg-[#0f172a] px-5 py-2 text-sm font-bold text-white shadow-sm">
                   입실 문의
                 </a>
