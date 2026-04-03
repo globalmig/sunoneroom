@@ -98,7 +98,7 @@ export default function Home() {
               </p>
               <h1
                 key={`title-${currentSlide}`}
-                className="anim-fade-up mt-3 text-4xl font-bold leading-tight text-amber-400 sm:text-5xl lg:text-6xl"
+                className="anim-fade-up mt-3 text-4xl font-bold leading-tight text-amber-400 sm:text-5xl lg:text-6xl break-keep"
                 style={{ animationDelay: "60ms", textShadow: "0 2px 12px rgba(0,0,0,0.75)" }}
               >
                 {HERO_SLIDES[currentSlide].title}
