@@ -205,9 +205,9 @@ export default function Home() {
                   <PhoneInquiryButton phone={PHONE} className="rounded-full bg-[#111827] px-6 py-3 text-center text-sm font-bold text-white shadow-[0_12px_24px_rgba(17,24,39,0.18)]">
                     입실 문의
                   </PhoneInquiryButton>
-                  <Link href="/shared-facilities" className="rounded-full border border-[#111827]/15 bg-white/80 px-6 py-3 text-center text-sm font-bold text-[#111827]">
+                  {/* <Link href="/shared-facilities" className="rounded-full border border-[#111827]/15 bg-white/80 px-6 py-3 text-center text-sm font-bold text-[#111827]">
                     시설 둘러보기
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
