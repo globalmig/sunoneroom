@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "시설 안내",
+  description: "SUN원룸텔 서비스 안내. 합리적인 월세, 풀옵션 룸, 24시간 CCTV 보안, 소방 시설, 세탁·주방 공용시설. 금촌역 도보 5분.",
+  alternates: { canonical: "https://sunoneroom.com/about" },
+  openGraph: {
+    title: "시설 안내 | 썬원룸텔",
+    description: "SUN원룸텔 서비스 안내. 합리적인 월세, 풀옵션 룸, 24시간 CCTV 보안.",
+    url: "https://sunoneroom.com/about",
+    images: [{ url: "/images/private_2f_3.png", width: 1200, height: 630, alt: "썬원룸텔 객실" }],
+  },
+};
 
 const SERVICE_ITEMS = [
   {

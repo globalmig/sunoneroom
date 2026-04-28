@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PhotoGallery from "@/components/shared/PhotoGallery";
+
+export const metadata: Metadata = {
+  title: "공용시설",
+  description: "썬원룸텔 공용시설 안내. 층별 공용 주방, 세탁실, 옥상 테라스, 24시간 CCTV 보안, 스프링클러 소방 시설 완비.",
+  alternates: { canonical: "https://sunoneroom.com/shared-facilities" },
+  openGraph: {
+    title: "공용시설 | 썬원룸텔",
+    description: "층별 공용 주방, 세탁실, 옥상 테라스, 24시간 CCTV 보안, 소방 시설 완비.",
+    url: "https://sunoneroom.com/shared-facilities",
+    images: [{ url: "/images/room/2/common/1.webp", width: 1200, height: 630, alt: "썬원룸텔 공용시설" }],
+  },
+};
 
 type TabKey = "facilities" | "services" | "photos";
 

@@ -1,4 +1,17 @@
+import type { Metadata } from "next";
 import MenuPage from "@/components/layout/MenuPage";
+
+export const metadata: Metadata = {
+  title: "개인시설",
+  description: "썬원룸텔 개인시설 안내. 침대·책상·냉장고·개별 에어컨·샤워부스 완비, 풀옵션 독립 각방. 금촌역 도보 5분.",
+  alternates: { canonical: "https://sunoneroom.com/personal-facilities" },
+  openGraph: {
+    title: "개인시설 | 썬원룸텔",
+    description: "침대·책상·냉장고·개별 에어컨·샤워부스 완비, 풀옵션 독립 각방.",
+    url: "https://sunoneroom.com/personal-facilities",
+    images: [{ url: "/images/room/floor_02_01.png", width: 1200, height: 630, alt: "썬원룸텔 개인시설" }],
+  },
+};
 
 export default function PersonalFacilitiesPage() {
   return (

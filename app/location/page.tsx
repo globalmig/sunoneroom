@@ -1,5 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PhoneInquiryButton from "@/components/common/PhoneInquiryButton";
+
+export const metadata: Metadata = {
+  title: "오시는 길",
+  description: "썬원룸텔 위치 안내. 경기도 파주시 정담길 17 (아동동 297) 보광빌딩 2·3층. 경의중앙선 금촌역 2번출구 도보 5분.",
+  alternates: { canonical: "https://sunoneroom.com/location" },
+  openGraph: {
+    title: "오시는 길 | 썬원룸텔",
+    description: "경기도 파주시 정담길 17, 금촌역 2번출구 도보 5분. 버스·지하철 모두 이용 가능.",
+    url: "https://sunoneroom.com/location",
+  },
+};
 
 const LOCATION_ROWS = [
   {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PhoneInquiryButton from "@/components/common/PhoneInquiryButton";
@@ -161,6 +162,24 @@ function facilityTone() {
 
 export function generateStaticParams() {
   return ROOM_TYPES.map((room) => ({ slug: room.slug }));
+}
+
+export async function generateMetadata({ params }: RoomDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const room = ROOM_TYPES.find((item) => item.slug === slug);
+  if (!room) return {};
+
+  return {
+    title: room.title,
+    description: `SUN원룸텔 ${room.title} - 금촌역 2번출구 도보 5분, 풀옵션 독립 각방. 침대·책상·냉장고·개별 에어컨 완비. 1개월 단위 입실 가능.`,
+    alternates: { canonical: `https://sunoneroom.com/rooms/${room.slug}` },
+    openGraph: {
+      title: `${room.title} | 썬원룸텔`,
+      description: `SUN원룸텔 ${room.title} - 풀옵션 독립 각방. 침대·책상·냉장고·에어컨 완비. 금촌역 도보 5분.`,
+      url: `https://sunoneroom.com/rooms/${room.slug}`,
+      images: [{ url: room.mainImage, width: 1200, height: 630, alt: `썬원룸텔 ${room.title}` }],
+    },
+  };
 }
 
 export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
